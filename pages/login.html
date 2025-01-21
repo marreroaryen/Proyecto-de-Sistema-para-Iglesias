@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sessión - Alfa Y Omega</title>
+    <link href="../css/login.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="login_container">
+            <div class="login_title">
+                <span>Iniciar Sesión</span>
+            </div>
+
+            <div class="logo_container">
+                <img src="../images/Logo_Alfa_Y_Omega.png" alt="Logo">
+            </div>
+
+            <form novalidate>
+                <div class="input_wrapper">
+                    <input type="text" id="usuario" class="input_field" required>
+                    <label for="usuario" class="label">Usuario</label>
+                    <i class="fa-regular fa-user icon"></i>
+                </div>
+
+                <div class="input_wrapper">
+                    <input type="text" id="contrasenha" class="input_field" required>
+                    <label for="contrasenha" class="label">Contraseña</label>
+                    <i class="fa-solid fa-lock icon"></i>
+                </div>
+
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <label class="checkbox">
+                            <input type="checkbox" id="remember">
+                            <div class="checkmarck"></div>
+                        </label>
+                        <label for="remember">Remember</label>
+                    </div>
+
+                    <div class="forgot">
+                        <a href="#">Recuperar Contraseña</a>
+                    </div>
+                </div>
+
+                <div class="input_wrapper">
+                    <button type="submit" class="button-submit">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

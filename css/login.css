@@ -1,0 +1,255 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #F5BF56;
+    --second-color: #292828;
+    --black-color: #020101;
+}
+
+body {
+    background-position: center;
+    background-image: url("../images/Login\ Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+a {
+    color: var(--second-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 9, 0, 0.7);
+}
+
+.logo_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo_container img {
+    width: 85%;
+    object-fit: contain;
+} 
+
+.login_container {
+    position: relative;
+    background-color: #f5f5f5;
+    /* backdrop-filter: blur(25px); */
+    width: 450px;
+    border: 3px solid var(--primary-color);
+    padding: 4.7em 2.5em 2em 2.5em;
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.2);
+    color: var(--second-color);
+    border-radius: 20px;
+}
+
+.login_title {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    display: flex;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    background-color: var(--primary-color);
+    border-radius: 0 0 20px 20px;
+    height: 60px;
+}
+
+.login_title span {
+    color: var(--black-color);
+    font-size: 35px;
+}
+
+.login_title::before {
+    content: "";
+    top: 0;
+    left: -30px;
+    position: absolute;
+    border-top-right-radius: 50%;
+    width: 30px;
+    height: 30px;
+    box-shadow: 15px 0 0 0 var(--primary-color);
+    background: transparent;
+}
+
+.login_title::after {
+    content: "";
+    top: 0;
+    position: absolute;
+    height: 30px;
+    right: -30px;
+    width: 30px;
+    background: transparent;
+    border-top-left-radius: 50%;
+    box-shadow: -15px 0 0 0 var(--primary-color);
+}
+
+.input_wrapper {
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    margin: 20px 0;
+}
+
+.input_wrapper label {
+    font-size: 17px;
+}
+
+.input_field {
+    width: 100%;
+    font-size: 16px;
+    height: 55px;
+    color: var(--second-color);
+    background: transparent;
+    padding-inline: 20px 54px;
+    border-radius: 30px;
+    border: 2px solid var(--primary-color);
+    outline: none;
+}
+
+.label {
+    position: absolute;
+    transition: 0.2s;
+    top: 18px;
+    left: 20px;
+}
+
+.input_field:focus ~ .label,
+.input_field:valid ~ .label{
+    position: absolute;
+    font-size: 19px;
+    top: -10px;
+    left: 20px;
+    background-color: var(--primary-color);
+    color: var(--black-color);
+    border-radius: 30px;
+    padding: 0 10px;
+}
+
+.remember-me{
+    display: flex;
+    align-items: center;
+}
+
+.remember-me label{
+    margin-left: 10px;
+}
+
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+}
+
+.checkmarck {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc; /* Color predeterminado */
+    border-radius: 50%;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease; /* Transición suave */
+}
+
+.checkmarck:hover {
+    box-shadow: inset 17px 17px 16px #b3b3b3,
+                inset -17px -17px -16px #ffffff;
+}
+
+/* Cambiar fondo y sombra al marcar */
+.checkbox input:checked + .checkmarck {
+    background-color: #1398cd; /* Fondo verde */
+    box-shadow: 0px 8px 15px rgba(0, 64, 125, 0.4); /* Sombra verde */
+}
+
+/* Efecto de rotación */
+.checkmarck::after {
+    content: '';
+    position: absolute;
+    display: block; /* Se asegura que esté presente para la animación */
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid white;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(0deg); /* Rotación inicial */
+    transition: transform 0.4s ease, opacity 0.4s ease; /* Animación de rotación */
+    opacity: 0; /* Invisible por defecto */
+    box-shadow: 0.1em 0.1em 0em 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Cuando el checkbox está marcado, el checkmark rota */
+.checkbox input:checked + .checkmarck::after {
+    transform: rotate(45deg); /* Gira a 45 grados */
+    opacity: 1; /* Se hace visible */
+}
+
+.icon {
+    position: absolute;
+    font-size: 20px;
+    top: 17px;
+    right: 25px;
+}
+
+.remember-forgot {
+    justify-content: space-between;
+    display: flex;
+    font-size: 15px;
+}
+
+.button-submit {
+    background: #F5BF56;
+    width: 100%;
+    height: 54px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    transition: 0.2s;
+}
+
+.button-submit:hover{
+    background: var(--second-color);
+}
+
+@media only screen and (max-width: 564px) {
+    .container {
+        padding: 20px;
+    }
+
+    .login_container {
+        padding: 4.7em 1.5em 1.5em 1.5em;
+    }
+}
