@@ -292,9 +292,29 @@
 
         pantalla();
 
+<<<<<<< HEAD
         window.addEventListener('resize', () => {
             pantalla();
         });
+=======
+            // Función que calcula y ajusta el comportamiento según el ancho
+    function ajustarPantalla() {
+        const anchoPantalla = window.innerWidth;
+        if (anchoPantalla < 768) {
+            document.querySelector('.br').style.display = '';
+            console.log("HOLA");
+        } else {
+            document.querySelector('.br').style.display = 'none';
+            console.log("ADIOS");
+        }
+    }
+
+    // Ejecutar la función al cargar la página
+    ajustarPantalla();
+
+    // Ejecutar la función al redimensionar la ventana
+    window.addEventListener('resize', ajustarPantalla);
+>>>>>>> 31484fa23ac57c66e4c66d711923c2c9be2deddf
     </script>
 </body>
 
