@@ -81,8 +81,16 @@
         </div>
 
         <div class="main">
+            <div class="fondo-menu-2">
+                <a href="#" id="logo">
+                    <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
+                    <div class="text">ALFA Y OMEGA</div>
+                </a>
+                <div class="menuToggle"></div>
+            </div>
+
             <div class="titulo">
-                <h1>Columna Y Baluarte <br class="br" > De La Verdad</h1>
+                <h1>Columna Y Baluarte <br class="br" style="display: none;"> De La Verdad</h1>
             </div>
 
             <div class="botones">
@@ -259,15 +267,33 @@
         }
 
         menuList.forEach((item) =>
-        item.addEventListener('click', activeLick));
+        item.addEventListener('click', activeLick));      
+
+        function pantalla() {
+            const anchoPantalla = window.innerWidth;
+            if (anchoPantalla < 525) {
+                document.querySelector('.br').style.display='';
+                document.querySelector('.fondo-menu-2').style.display='';
+                document.querySelector('.fondo-menu').style.display='none';
+                document.querySelector('.sidebar').style.display='none';
+            } else if (anchoPantalla <= 768){
+                document.querySelector('.br').style.display='none';
+                document.querySelector('.fondo-menu-2').style.display='';
+                document.querySelector('.fondo-menu').style.display='none';
+                document.querySelector('.sidebar').style.display='none';
+            }
+            else {
+                document.querySelector('.br').style.display='none';
+                document.querySelector('.fondo-menu-2').style.display='none';
+                document.querySelector('.fondo-menu').style.display='';
+                document.querySelector('.sidebar').style.display='';
+            }
+        }
+
+        pantalla();
 
         window.addEventListener('resize', () => {
-            const anchoPantalla = window.innerWidth;
-            if (anchoPantalla < 768) {
-                document.querySelector('.br').style.display='';
-            } else {
-                document.querySelector('.br').style.display='none'; 
-            }
+            pantalla();
         });
     </script>
 </body>
