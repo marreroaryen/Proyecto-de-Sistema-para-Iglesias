@@ -82,7 +82,7 @@
 
         <div class="main">
             <div class="titulo">
-                <h1>Columna Y Baluarte De La Verdad</h1>
+                <h1>Columna Y Baluarte <br class="br" > De La Verdad</h1>
             </div>
 
             <div class="botones">
@@ -219,8 +219,12 @@
                             <td>0414-414-2978</td>
                             <td>Guerreros de Adonay</td>
                             <td>
-                                <button>Editar</button>
-                                <button>Eliminar</button>
+                                <button>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>
+                                <button>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -256,6 +260,15 @@
 
         menuList.forEach((item) =>
         item.addEventListener('click', activeLick));
+
+        window.addEventListener('resize', () => {
+            const anchoPantalla = window.innerWidth;
+            if (anchoPantalla < 768) {
+                document.querySelector('.br').style.display='';
+            } else {
+                document.querySelector('.br').style.display='none'; 
+            }
+        });
     </script>
 </body>
 
