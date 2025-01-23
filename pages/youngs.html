@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -291,11 +291,14 @@
             sidebar.classList.toggle('active');
             main.classList.toggle('active');
         }
+        
 
         let menuToggle2 = document.querySelector('.menuToggle2');
+        let nav = document.querySelector('.nav');
 
         menuToggle2.onclick = function (){
             menuToggle2.classList.toggle('active');
+            nav.classList.toggle('active');
         }
 
         let menuList = document.querySelectorAll('.menu-list li');
@@ -306,6 +309,16 @@
         }
 
         menuList.forEach((item) =>
+        item.addEventListener('click', activeLick));
+        
+        let menu = document.querySelectorAll('.nav li');
+        function activeLick() {
+            menu.forEach((item) =>
+            item.classList.remove('active'));
+            this.classList.add('active');
+        }
+
+        menu.forEach((item) =>
         item.addEventListener('click', activeLick));      
 
         function pantalla() {
