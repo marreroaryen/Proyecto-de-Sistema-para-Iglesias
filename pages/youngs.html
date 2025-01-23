@@ -121,6 +121,24 @@
                         </li>
                     </ul>
                 </nav>
+                <div class="bottom">
+                    <li style="--bg: #0D0000;">
+                        <a href="#">
+                            <div class="icon">
+                                <div class="imgBx">
+                                    <img src="../images/icon/user.png" alt="">
+                                </div>
+                            </div>
+                            <div class="text">Aryen Marrero</div>
+                        </a>
+                    </li>
+                    <li style="--bg: #0D0000;">
+                        <a href="#">
+                            <div class="icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                            <div class="text">Cerrar Sesión</div>
+                        </a>
+                    </li>
+                </div>
             </div>
 
             <div class="titulo">
@@ -291,15 +309,6 @@
             sidebar.classList.toggle('active');
             main.classList.toggle('active');
         }
-        
-
-        let menuToggle2 = document.querySelector('.menuToggle2');
-        let nav = document.querySelector('.nav');
-
-        menuToggle2.onclick = function (){
-            menuToggle2.classList.toggle('active');
-            nav.classList.toggle('active');
-        }
 
         let menuList = document.querySelectorAll('.menu-list li');
         function activeLick() {
@@ -311,15 +320,24 @@
         menuList.forEach((item) =>
         item.addEventListener('click', activeLick));
         
+
+        let menuToggle2 = document.querySelector('.menuToggle2');
+        let nav = document.querySelector('.nav');
+
+        menuToggle2.onclick = function (){
+            menuToggle2.classList.toggle('active');
+            nav.classList.toggle('active');
+        }
+        
         let menu = document.querySelectorAll('.nav li');
-        function activeLick() {
+        function activeLick2() {
             menu.forEach((item) =>
             item.classList.remove('active'));
             this.classList.add('active');
         }
 
         menu.forEach((item) =>
-        item.addEventListener('click', activeLick));      
+        item.addEventListener('click', activeLick2));      
 
         function pantalla() {
             const anchoPantalla = window.innerWidth;
