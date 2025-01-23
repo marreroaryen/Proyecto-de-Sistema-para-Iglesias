@@ -524,8 +524,8 @@ tbody td {
 }
 
 .tableContainer table tbody button {
-    padding: 8px 12px;
-    font-size: 14px;
+    padding: 5px 9px;
+    font-size: 16px;
     font-weight: bold;
     border: none;
     border-radius: 5px;
@@ -604,20 +604,54 @@ tbody td {
         height: 2.7em;
     }
 
-    .menuToggle {
+    .menuToggle2 {
         position: relative;
-        height: 40px;
-        width: 45px;
         margin-left: 15px;
         margin-top: 0;
+        height: 40px;
+        width: 45px;
+        background-color: #eaeaea;
+        z-index: 1001;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.7s;
+        border-radius: 25%;
     }
-
-    .menuToggle::before {
-        width: 25px;
+    
+    .menuToggle2.active {
+        transition: .5s;
     }
-
-    .menuToggle::after {
+    
+    .menuToggle2::before {
+        content: '';
+        position: absolute;
         width: 25px;
+        height: 3px;
+        background-color: var(--clr);
+        transform: translateY(-10px);
+        transition: 0.5s;
+        box-shadow: 0 10px 0 var(--clr);
+    }
+    
+    .menuToggle2::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 3px;
+        background-color: var(--clr);
+        transform: translateY(10px);
+        transition: 0.5s;
+    }
+    
+    .menuToggle2.active::before {
+        transform: translateY(0px) rotate(45deg);
+        box-shadow: 0 0 0;
+    }
+    
+    .menuToggle2.active::after {
+        transform: translateY(0px) rotate(-45deg);
     }
     
     .titulo {

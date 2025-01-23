@@ -86,7 +86,7 @@
                     <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
                     <div class="text">ALFA Y OMEGA</div>
                 </a>
-                <div class="menuToggle"></div>
+                <div class="menuToggle2"></div>
             </div>
 
             <div class="titulo">
@@ -254,8 +254,14 @@
 
         menuToggle.onclick = function () {
             menuToggle.classList.toggle('active');
-           sidebar.classList.toggle('active');
-           main.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            main.classList.toggle('active');
+        }
+
+        let menuToggle2 = document.querySelector('.menuToggle2');
+
+        menuToggle2.onclick = function (){
+            menuToggle2.classList.toggle('active');
         }
 
         let menuList = document.querySelectorAll('.menu-list li');
