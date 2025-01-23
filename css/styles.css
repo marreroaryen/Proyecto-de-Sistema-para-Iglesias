@@ -435,7 +435,6 @@ button[type="button"]:hover {
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-x:visible;
 }
 
 /* Estilo de la barra de búsqueda y botón de reporte */
@@ -471,6 +470,7 @@ button[type="button"]:hover {
 }
 
 #report-pdf {
+    color: white;
     background-color: #e74c3c;
 }
 
@@ -482,12 +482,18 @@ button[type="button"]:hover {
     font-size: 22px;
 }
 
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
 /* Estilo de la tabla */
 table {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Arial', sans-serif;
     font-size: 16px;
+    overflow: hidden;
 }
 
 thead {
@@ -517,7 +523,7 @@ tbody td {
     color: #34495e;
 }
 
-button {
+.tableContainer table tbody button {
     padding: 8px 12px;
     font-size: 14px;
     font-weight: bold;
@@ -527,30 +533,30 @@ button {
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-button:first-of-type {
+.tableContainer table tbody button:first-of-type {
     background-color: #3498db;
     color: #fff;
 }
 
-button:first-of-type:hover {
+.tableContainer table tbody button:first-of-type:hover {
     background-color: #2980b9;
     transform: scale(1.05);
 }
 
-button:last-of-type {
+.tableContainer table tbody button:last-of-type {
     background-color: #e74c3c;
     color: #fff;
 }
 
-button:last-of-type:hover {
+.tableContainer table tbody button:last-of-type:hover {
     background-color: #c0392b;
     transform: scale(1.05);
 }
 
-
 @media (max-width: 830px) {
     .titulo {
         font-size: 17px;
+        margin: 20px;
     }
 }
 
@@ -618,6 +624,10 @@ button:last-of-type:hover {
         margin: 30px 25px;        
         font-size: 14px;
         text-align: center;
+    }
+
+    table {
+        min-width: unset;
     }
 
     thead th, tbody td {

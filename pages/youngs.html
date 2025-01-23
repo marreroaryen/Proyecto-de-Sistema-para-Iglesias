@@ -197,8 +197,6 @@
                 </form>
             </div>
 
-
-
             <!-- Tabla de datos -->
             <div class="tableContainer">
                 <div class="tableActions">
@@ -208,37 +206,38 @@
                         <!-- <button id="report-excel"><i class="fa-regular fa-file-excel"></i></button> -->
                     </div>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Cédula</th>
-                            <th>Edad</th>
-                            <th>Teléfono</th>
-                            <th>Grupo Familiar</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Aryen Marrero</td>
-                            <td>31200220</td>
-                            <td>20 años</td>
-                            <td>0414-414-2978</td>
-                            <td>Guerreros de Adonay</td>
-                            <td>
-                                <button>
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                                <button>
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cédula</th>
+                                <th>Edad</th>
+                                <th>Teléfono</th>
+                                <th>Grupo Familiar</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aryen Marrero</td>
+                                <td>31200220</td>
+                                <td>20 años</td>
+                                <td>0414-414-2978</td>
+                                <td>Guerreros de Adonay</td>
+                                <td>
+                                    <button>
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            
         </div>
     </div>
 
@@ -292,24 +291,7 @@
 
         pantalla();
 
-        window.addEventListener('resize', () => {
-            pantalla();
-        });
-           
-        function ajustarPantalla() {
-            const anchoPantalla = window.innerWidth;
-            if (anchoPantalla < 768) {
-                document.querySelector('.br').style.display = '';
-                console.log("HOLA");
-            } else {
-                document.querySelector('.br').style.display = 'none';
-                console.log("ADIOS");
-            }
-        }
-
-        ajustarPantalla();
-
-        window.addEventListener('resize', ajustarPantalla);
+        window.addEventListener('resize', pantalla);
     </script>
 </body>
 

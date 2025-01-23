@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link href="../css/select2.min.css" rel="stylesheet" />
 </head>
-<body>
+
+<body>    
     <div class="container">
-        <div class="menuToggle"></div>
+        <!-- Menu Lateral -->
         <div class="sidebar">
             <ul>
                 <li class="logo" style="--bg: #0D0000;">
@@ -20,7 +23,7 @@
                 </li>
                 <div class="menu-list">
                     <ul>
-                        <li style="--bg: #f44336;" class="active">
+                        <li style="--bg: #f44336;" class="">
                             <a href="#">
                                 <div class="icon"><i class="fa-regular fa-house"></i></div>
                                 <div class="text">Inicio</div>
@@ -38,7 +41,7 @@
                                 <div class="text">Damas</div>
                             </a>
                         </li>
-                        <li style="--bg: #2196f3;" class="">
+                        <li style="--bg: #2196f3;" class="active">
                             <a href="#">
                                 <div class="icon"><i class="fas fa-users"></i></div>
                                 <div class="text">Jóvenes</div>
@@ -72,26 +75,242 @@
                 </div>
             </ul>
         </div>
+
+        <div class="fondo-menu">
+            <div class="menuToggle"></div>
+        </div>
+
+        <div class="main">
+            <div class="fondo-menu-2">
+                <a href="#" id="logo">
+                    <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
+                    <div class="text">ALFA Y OMEGA</div>
+                </a>
+                <div class="menuToggle"></div>
+            </div>
+
+            <div class="titulo">
+                <h1>Columna Y Baluarte <br class="br" style="display: none;"> De La Verdad</h1>
+            </div>
+
+            <div class="botones">
+                <button class="registrar" onclick="
+                document.querySelector('.formRegistrar').style.display=''
+                document.querySelector('.registrar').style.display='none'">
+                Registrar Joven</button>
+            </div>
+
+            <!-- Formulario de registro -->
+            <div class="formRegistrar" style="display: none;">
+                <h2>Registrar Joven</h2>
+                <form action="#">
+                    <fieldset>
+                        <legend>Datos Personales</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombres">Nombres:</label>
+                                <input type="text" id="nombres" name="nombres">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellidos">Apellidos:</label>
+                                <input type="text" id="apellidos" name="apellidos">
+                            </div>
+                            <div class="form-group">
+                                <label for="cedula">Cédula:</label>
+                                <input type="text" id="cedula" name="cedula">
+                            </div>
+                            <div class="form-group">
+                                <label for="sexo">Sexo:</label>
+                                <select id="sexo" name="sexo">
+                                    <option value="">Seleccione...</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="femenino">Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group" id="direccion-group">
+                                <label for="direccion">Direccón:</label>
+                                <input type="email" id="direccion" name="direccion">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono:</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                            <div class="form-group" id="correo-group">
+                                <label for="correo">Correo:</label>
+                                <input type="email" id="correo" name="correo">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Información Adicional</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                                <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado Civil:</label>
+                                <select name="estado" id="estado">
+                                    <option value="">Seleccione...</option>
+                                    <option value="Soltero">Soltero(a)</option>
+                                    <option value="Casado">Casado(a)</option>
+                                    <option value="Viudo">Viudo(a)</option>
+                                    <option value="Separado">Separado(a)</option>
+                                    <option value="Divorciado">Divorciado(a)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="hijos">Hijos:</label>
+                                <input type="number" id="hijos" name="hijos" min="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="grupoFamiliar">Grupo Familiar:</label>
+                                <input type="text" id="grupoFamiliar" name="grupoFamiliar">
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaBautizo">Fecha de Bautizo:</label>
+                                <input type="date" id="fechaBautizo" name="fechaBautizo">
+                            </div>
+                            <div class="form-group" id="areas-group">
+                                <label for="areas">Áreas de Servicio:</label>
+                                <select id="areas" name="areas[]" multiple>
+                                    <option value="evangelismo">Evangelismo</option>
+                                    <option value="misiones">Misiones</option>
+                                    <option value="damas">Damas</option>
+                                    <option value="jovenes">Jóvenes</option>
+                                    <option value="brigada">Brigada</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="buttons">
+                        <button type="button" onclick="document.querySelector('.formRegistrar').style.display='none'
+                        document.querySelector('.registrar').style.display=''">Ocultar Formulario</button>
+                        <button class="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+            <!-- Tabla de datos -->
+            <div class="tableContainer">
+                <div class="tableActions">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
+                    <div class="generateReportBtn">
+                        <button id="report-pdf"><i class="fa-regular fa-file-pdf"></i></button>
+                        <!-- <button id="report-excel"><i class="fa-regular fa-file-excel"></i></button> -->
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Cédula</th>
+                            <th>Edad</th>
+                            <th>Teléfono</th>
+                            <th>Grupo Familiar</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aryen Marrero</td>
+                            <td>31200220</td>
+                            <td>20 años</td>
+                            <td>0414-414-2978</td>
+                            <td>Guerreros de Adonay</td>
+                            <td>
+                                <button>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>
+                                <button>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
     </div>
 
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/select2.min.js"></script>
     <script>
+        $(document).ready(function() {
+            $('#areas').select2();
+        });
+
         let menuToggle = document.querySelector('.menuToggle');
         let sidebar = document.querySelector('.sidebar');
+        let main = document.querySelector('.main');
 
-        menuToggle.onclick = function(){
+        menuToggle.onclick = function () {
             menuToggle.classList.toggle('active');
-            sidebar.classList.toggle('active');
+           sidebar.classList.toggle('active');
+           main.classList.toggle('active');
         }
 
         let menuList = document.querySelectorAll('.menu-list li');
-        function activeLick(){
+        function activeLick() {
             menuList.forEach((item) =>
             item.classList.remove('active'));
             this.classList.add('active');
         }
-        
+
         menuList.forEach((item) =>
-        item.addEventListener('click', activeLick));
+        item.addEventListener('click', activeLick));      
+
+        function pantalla() {
+            const anchoPantalla = window.innerWidth;
+            if (anchoPantalla < 525) {
+                document.querySelector('.br').style.display='';
+                document.querySelector('.fondo-menu-2').style.display='';
+                document.querySelector('.fondo-menu').style.display='none';
+                document.querySelector('.sidebar').style.display='none';
+            } else if (anchoPantalla <= 768){
+                document.querySelector('.br').style.display='none';
+                document.querySelector('.fondo-menu-2').style.display='';
+                document.querySelector('.fondo-menu').style.display='none';
+                document.querySelector('.sidebar').style.display='none';
+            }
+            else {
+                document.querySelector('.br').style.display='none';
+                document.querySelector('.fondo-menu-2').style.display='none';
+                document.querySelector('.fondo-menu').style.display='';
+                document.querySelector('.sidebar').style.display='';
+            }
+        }
+
+        pantalla();
+
+        window.addEventListener('resize', () => {
+            pantalla();
+        });
+           
+        function ajustarPantalla() {
+            const anchoPantalla = window.innerWidth;
+            if (anchoPantalla < 768) {
+                document.querySelector('.br').style.display = '';
+                console.log("HOLA");
+            } else {
+                document.querySelector('.br').style.display = 'none';
+                console.log("ADIOS");
+            }
+        }
+
+        ajustarPantalla();
+
+        window.addEventListener('resize', ajustarPantalla);
     </script>
 </body>
+
 </html>
