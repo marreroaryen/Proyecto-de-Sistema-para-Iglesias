@@ -581,7 +581,6 @@ tbody td {
         text-decoration: none;
         color: #0D0000;
         cursor: pointer;
-        padding: 0 30px 0 10px;
     }
 
     .fondo-menu-2 a .icon {
@@ -801,11 +800,12 @@ tbody td {
     .bottom2 {
         display: flex;
         position: absolute;
-        right: 60px;
-        width: 120px;
+        right: 65px;
+        width: 90px;
         height: 60px;
         /* background-color: #0056b3; */
         padding-top: 17px;
+        justify-content: space-between;
     }
     
     .bottom2 li {
