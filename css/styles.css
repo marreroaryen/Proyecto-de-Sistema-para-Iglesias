@@ -306,6 +306,19 @@ body {
     color: var(--white);
 }
 
+<<<<<<< HEAD
+=======
+button.registrar, button.registrarActividad {
+    background-color: #2196f3 !important;
+    color: #fff !important;
+}
+
+button.registrar:hover , button.registrarActividad:hover {
+    background-color: #156397 !important;
+    transform: scale(1.05) !important;
+}
+
+>>>>>>> fbed25d0111eb40de86f1ff36ffdd19f2e711b93
 /* Inicio Formulario de Registro */
 .formRegistrar {
     width: 95%;
@@ -559,8 +572,13 @@ tbody td {
 }
 
 .header {
+<<<<<<< HEAD
     background-color: #eaeaea;
     color: #1a1a1a;
+=======
+    background-color: #f9f9f9;
+    color: #333;
+>>>>>>> fbed25d0111eb40de86f1ff36ffdd19f2e711b93
     padding: 15px 20px;
     text-align: center;
     width: 95%;
@@ -975,6 +993,7 @@ table th {
         width: 95%;
     }
 
+<<<<<<< HEAD
     .header h1 {
         font-size: 1.7em;
     }
@@ -990,10 +1009,43 @@ table th {
     .tableContainer {
         width: 95%;
     } 
+=======
+    .titulo {
+        margin-top: 100px;
+    }
+    
+    .header {
+        margin-top: 65px;
+    }
+
+    .formRegistrar {
+        width: 90%;
+    }
+
+    .botones {
+        width: 90%;
+    }
+
+    .header {
+        width: 90%;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .tableContainer {
+        width: 90%;
+    }
+>>>>>>> fbed25d0111eb40de86f1ff36ffdd19f2e711b93
 }
 
 @media (max-width: 400px){
     .header h1 {
+<<<<<<< HEAD
         font-size: 1em;
+=======
+        font-size: 1.3em;
+>>>>>>> fbed25d0111eb40de86f1ff36ffdd19f2e711b93
     }
 }
