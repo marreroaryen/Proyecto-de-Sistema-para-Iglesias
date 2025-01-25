@@ -8,19 +8,38 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
     <link href="../css/select2.min.css" rel="stylesheet" />
+    <style>
+        button.registrar, button.registrarActividad {
+            background-color: #1079cf !important;
+            color: #fff !important;
+        }
+
+        button.registrar:hover , button.registrarActividad:hover {
+            background-color: #105b8d !important;
+            transform: scale(1.05) !important;
+        }
+
+        table th {
+            background-color: #1079cf;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <!-- Menu Lateral -->
-        <div class="sidebar">
+        <div class="sidebar" style="display: nonem;">
             <ul>
-                <li class="logo" style="--bg: #0D0000;">
-                    <a href="#">
-                        <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
-                        <div class="text">ALFA Y OMEGA</div>
-                    </a>
-                </li>
+                <div class="menu">
+                    <li class="logo" style="--bg: #0D0000;">
+                        <a href="#">
+                            <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
+                            <div class="text">ALFA Y OMEGA</div>
+                        </a>
+                    </li>
+                    <div class="menuToggle"></div>
+                </div>
                 <div class="menu-list">
                     <ul>
                         <li style="--bg: #f44336;" class="">
@@ -41,7 +60,7 @@
                                 <div class="text">Damas</div>
                             </a>
                         </li>
-                        <li style="--bg: #2196f3;" class="active">
+                        <li style="--bg: #1079cf;" class="active">
                             <a href="#" title="JÓVENES">
                                 <div class="icon"><i class="fas fa-users"></i></div>
                                 <div class="text">Jóvenes</div>
@@ -78,83 +97,21 @@
             </ul>
         </div>
 
-        <div class="fondo-menu">
-            <div class="menuToggle"></div>
-        </div>
-
         <div class="main">
-            <div class="fondo-menu-2">
-                <a href="#" id="logo">
-                    <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
-                    <div class="text">ALFA Y OMEGA</div>
-                </a>
-                
-                <div class="bottom2">
-                    <li style="--bg: #0D0000;" class="user-conf">
-                        <a href="#">
-                            <div class="icon"><i class="fas fa-cog"></i></div>
-                            <!-- <div class="text">Aryen Marrero</div> -->
-                        </a>
-                    </li>
-                    <li style="--bg: #0D0000;">
-                        <a href="#">
-                            <div class="icon"><i class="fa-solid fa-right-from-bracket"></i></div>
-                            <!-- <div class="text">Cerrar Sesión</div> -->
-                        </a>
-                    </li>
-                </div>
-                <div class="menuToggle2"></div>
-                <nav class="nav">
-                    <ul>
-                        <li style="--bg: #f44336;" class="">
-                            <a href="#" title="INICIO">
-                                <div class="icon"><i class="fa-regular fa-house"></i></div>
-                                <div class="text">Inicio</div>
-                            </a>
-                        </li>
-                        <li style="--bg: #ffa117;" class="">
-                            <a href="#" title="BRIGADA">
-                                <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                                <div class="text">Brigada</div>
-                            </a>
-                        </li>
-                        <li style="--bg: #b145e9;" class="">
-                            <a href="#" title="DAMAS">
-                                <div class="icon"><i class="fas fa-female"></i></div>
-                                <div class="text">Damas</div>
-                            </a>
-                        </li>
-                        <li style="--bg: #2196f3;" class="active">
-                            <a href="#" title="JÓVENES">
-                                <div class="icon"><i class="fas fa-users"></i></div>
-                                <div class="text">Jóvenes</div>
-                            </a>
-                        </li>
-                        <li style="--bg: #0fc70f;" class="">
-                            <a href="#" title="EBD">
-                                <div class="icon"><i class="fas fa-book"></i></div>
-                                <div class="text">EBD</div>
-                            </a>
-                        </li>
-                        <li style="--bg: #ffc107;" class="">
-                            <a href="#" title="USUARIOS">
-                                <div class="icon"><i class="fas fa-user"></i></div>
-                                <div class="text">USUARIOS</div>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="titulo">
-                <h1>Columna Y Baluarte <br class="br" style="display: none;"> De La Verdad</h1>
+            <div class="header">
+                <h1>Columna Y Baluarte de la Verdad</h1>
             </div>
 
             <div class="botones">
                 <button class="registrar" onclick="
                 document.querySelector('.formRegistrar').style.display=''
-                document.querySelector('.registrar').style.display='none'">
+                document.querySelector('.registrar').style.display='none'
+                ">
                     Registrar Joven</button>
+                <button class="registrarActividad" onclick="
+                document.querySelector('#formRegistrarActividad').style.display=''
+                document.querySelector('.registrarActividad').style.display='none'">
+                    Registrar Actividad</button>
             </div>
 
             <!-- Formulario de registro -->
@@ -254,13 +211,36 @@
                 </form>
             </div>
 
+            <!-- Formulario de registro -->
+            <div class="formRegistrar" id="formRegistrarActividad" style="display: none;">
+                <h2>Registrar Actividad</h2>
+                <form action="#">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombreActividad">Nombre:</label>
+                            <input type="text" id="nombreActividad" name="nombreActividad">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaActividad">Fecha:</label>
+                            <input type="date" id="fechaActividad" name="fechaActividad">
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" onclick="document.querySelector('#formRegistrarActividad').style.display='none'
+                        document.querySelector('.registrarActividad').style.display=''">Ocultar Formulario</button>
+                        <button class="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+
             <!-- Tabla de datos -->
             <div class="tableContainer">
+                <h3>Lista de Jóvenes</h3>
                 <div class="tableActions">
                     <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
                     <div class="generateReportBtn">
                         <button id="report-pdf"><i class="fa-regular fa-file-pdf"></i></button>
-                        <!-- <button id="report-excel"><i class="fa-regular fa-file-excel"></i></button> -->
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -295,6 +275,38 @@
                     </table>
                 </div>
             </div>
+            
+            <div class="tableContainer">
+                <h3>Lista de Actividades</h3>
+                <div class="tableActions">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Campaña Evangelistica</td>
+                                <td>18-02-2025</td>
+                                <td>
+                                    <button>
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -308,11 +320,13 @@
         let menuToggle = document.querySelector('.menuToggle');
         let sidebar = document.querySelector('.sidebar');
         let main = document.querySelector('.main');
+        let logo = document.querySelector('.logo');
 
         menuToggle.onclick = function () {
             menuToggle.classList.toggle('active');
             sidebar.classList.toggle('active');
             main.classList.toggle('active');
+            logo.classList.toggle('activo');
         }
 
         let menuList = document.querySelectorAll('.menu-list li');
@@ -325,49 +339,6 @@
         menuList.forEach((item) =>
             item.addEventListener('click', activeLick));
 
-
-        let menuToggle2 = document.querySelector('.menuToggle2');
-        let nav = document.querySelector('.nav');
-
-        menuToggle2.onclick = function () {
-            menuToggle2.classList.toggle('active');
-            nav.classList.toggle('active');
-        }
-
-        let menu = document.querySelectorAll('.nav li');
-        function activeLick2() {
-            menu.forEach((item) =>
-                item.classList.remove('active'));
-            this.classList.add('active');
-        }
-
-        menu.forEach((item) =>
-            item.addEventListener('click', activeLick2));
-
-        function pantalla() {
-            const anchoPantalla = window.innerWidth;
-            if (anchoPantalla < 525) {
-                document.querySelector('.br').style.display = '';
-                document.querySelector('.fondo-menu-2').style.display = '';
-                document.querySelector('.fondo-menu').style.display = 'none';
-                document.querySelector('.sidebar').style.display = 'none';
-            } else if (anchoPantalla <= 768) {
-                document.querySelector('.br').style.display = 'none';
-                document.querySelector('.fondo-menu-2').style.display = '';
-                document.querySelector('.fondo-menu').style.display = 'none';
-                document.querySelector('.sidebar').style.display = 'none';
-            }
-            else {
-                document.querySelector('.br').style.display = 'none';
-                document.querySelector('.fondo-menu-2').style.display = 'none';
-                document.querySelector('.fondo-menu').style.display = '';
-                document.querySelector('.sidebar').style.display = '';
-            }
-        }
-
-        pantalla();
-
-        window.addEventListener('resize', pantalla);
     </script>
 </body>
 
