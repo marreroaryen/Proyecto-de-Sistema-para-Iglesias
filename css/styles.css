@@ -287,11 +287,23 @@ body {
 }
 
 .botones{
+    position: relative;
     width: 95%;
     display: flex;
     align-items: center;
     margin-top: 20px;
     justify-content: space-between;
+    padding: 30px;
+}
+
+.register {
+    position: absolute;
+    left: 0;
+}
+
+.register + .register {
+    left: auto;
+    right: 0;
 }
 
 .botones button {
@@ -304,7 +316,7 @@ body {
     border: none;
     transition: 0.2s;
     color: var(--white);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 button.registrar, button.registrarActividad {
@@ -320,8 +332,7 @@ button.registrar:hover , button.registrarActividad:hover {
 /* Inicio Formulario de Registro */
 .formRegistrar {
     width: 95%;
-    margin-top: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 35px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -513,7 +524,7 @@ table {
 }
 
 thead {
-    background-color: #2c3e50;
+    background-color: #161c22;
     color: #fff;
     text-align: left;
 }
@@ -522,7 +533,7 @@ thead th {
     padding: 12px 15px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-bottom: 2px solid #34495e;
+    border-bottom: 2px solid #212c36;
 }
 
 tbody tr {
@@ -531,12 +542,12 @@ tbody tr {
 }
 
 tbody tr:hover {
-    background-color: #e5e3e3;
+    background-color: #bdbdbd;
 }
 
 tbody td {
     padding: 10px 15px;
-    color: #34495e;
+    color: #161c22;
 }
 
 .tableContainer table tbody button {
@@ -572,14 +583,12 @@ tbody td {
 .header {
     background-color: #eaeaea;
     color: #1a1a1a;
-    background-color: #f9f9f9;
-    color: #333;
     padding: 15px 20px;
     text-align: center;
     width: 95%;
     font-size: 1.5em;
     border-radius: 0px 0px 25px 25px;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .card {
@@ -657,6 +666,10 @@ table th {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.d-none {
+    display: none;
 }
 
 @media (max-width: 830px) {
@@ -1008,10 +1021,6 @@ table th {
         margin-top: 100px;
     }
     
-    .header {
-        margin-top: 65px;
-    }
-
     .formRegistrar {
         width: 90%;
     }

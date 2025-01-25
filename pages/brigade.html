@@ -1,70 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sociedad de Jóvenes - Alfa Y Omega</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link href="../css/select2.min.css" rel="stylesheet" />
+    <style>
+        button.registrar, button.registrarActividad {
+            background-color: #1079cf !important;
+            color: #fff !important;
+        }
+
+        button.registrar:hover , button.registrarActividad:hover {
+            background-color: #105b8d !important;
+            transform: scale(1.05) !important;
+        }
+
+        table th {
+            background-color: #1079cf;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
-        <div class="menuToggle"></div>
-        <div class="sidebar">
+        <!-- Menu Lateral -->
+        <div class="sidebar" style="display: nonem;">
             <ul>
-                <li class="logo" style="--bg: #0D0000;">
-                    <a href="#">
-                        <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
-                        <div class="text">ALFA Y OMEGA</div>
-                    </a>
-                </li>
+                <div class="menu">
+                    <li class="logo" style="--bg: #0D0000;">
+                        <a href="#">
+                            <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
+                            <div class="text">ALFA Y OMEGA</div>
+                        </a>
+                    </li>
+                    <div class="menuToggle"></div>
+                </div>
                 <div class="menu-list">
                     <ul>
-                        <li style="--bg: #f44336;" class="active">
-                            <a href="#">
+                        <li style="--bg: #f44336;" class="">
+                            <a href="#" title="INICIO">
                                 <div class="icon"><i class="fa-regular fa-house"></i></div>
                                 <div class="text">Inicio</div>
                             </a>
                         </li>
                         <li style="--bg: #ffa117;" class="">
-                            <a href="#">
+                            <a href="#" title="BRIGADA">
                                 <div class="icon"><i class="fas fa-shield-alt"></i></div>
                                 <div class="text">Brigada</div>
                             </a>
                         </li>
                         <li style="--bg: #b145e9;" class="">
-                            <a href="#">
+                            <a href="#" title="DAMAS">
                                 <div class="icon"><i class="fas fa-female"></i></div>
                                 <div class="text">Damas</div>
                             </a>
                         </li>
-                        <li style="--bg: #2196f3;" class="">
-                            <a href="#">
+                        <li style="--bg: #1079cf;" class="active">
+                            <a href="#" title="JÓVENES">
                                 <div class="icon"><i class="fas fa-users"></i></div>
                                 <div class="text">Jóvenes</div>
                             </a>
                         </li>
                         <li style="--bg: #0fc70f;" class="">
-                            <a href="#">
+                            <a href="#" title="EBD">
                                 <div class="icon"><i class="fas fa-book"></i></div>
                                 <div class="text">EBD</div>
+                            </a>
+                        </li>
+                        <li style="--bg: #ffc107;" class="">
+                            <a href="#" title="USUARIOS">
+                                <div class="icon"><i class="fas fa-user"></i></div>
+                                <div class="text">USUARIOS</div>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="bottom">
                     <li style="--bg: #0D0000;">
-                        <a href="#">
-                            <div class="icon">
-                                <div class="imgBx">
-                                    <img src="../images/icon/user.png" alt="">
-                                </div>
-                            </div>
-                            <div class="text">Aryen Marrero</div>
+                        <a href="#" title="AJUSTES">
+                            <div class="icon"><i class="fas fa-user-cog"></i></div>
+                            <div class="text">Ajustes</div>
                         </a>
                     </li>
                     <li style="--bg: #0D0000;">
-                        <a href="#">
+                        <a href="#" title="CERRAR SESIÓN">
                             <div class="icon"><i class="fa-solid fa-right-from-bracket"></i></div>
                             <div class="text">Cerrar Sesión</div>
                         </a>
@@ -72,26 +96,267 @@
                 </div>
             </ul>
         </div>
+
+        <div class="main">
+            <div class="header">
+                <h1>Columna Y Baluarte de la Verdad</h1>
+            </div>
+
+            <div class="botones">
+                <button class="registrar" onclick="
+                document.querySelector('.formRegistrar').style.display=''
+                document.querySelector('.registrar').style.display='none'
+                ">
+                    Registrar Joven</button>
+                <button class="registrarActividad" onclick="
+                document.querySelector('#formRegistrarActividad').style.display=''
+                document.querySelector('.registrarActividad').style.display='none'">
+                    Registrar Actividad</button>
+            </div>
+
+            <!-- Formulario de registro -->
+            <div class="formRegistrar" style="display: none;">
+                <h2>Registrar Joven</h2>
+                <form action="#">
+                    <fieldset>
+                        <legend>Datos Personales</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombres">Nombres:</label>
+                                <input type="text" id="nombres" name="nombres">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellidos">Apellidos:</label>
+                                <input type="text" id="apellidos" name="apellidos">
+                            </div>
+                            <div class="form-group">
+                                <label for="cedula">Cédula:</label>
+                                <input type="text" id="cedula" name="cedula">
+                            </div>
+                            <div class="form-group">
+                                <label for="sexo">Sexo:</label>
+                                <select id="sexo" name="sexo">
+                                    <option value="">Seleccione...</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="femenino">Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group" id="direccion-group">
+                                <label for="direccion">Direccón:</label>
+                                <input type="email" id="direccion" name="direccion">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono:</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                            <div class="form-group" id="correo-group">
+                                <label for="correo">Correo:</label>
+                                <input type="email" id="correo" name="correo">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Información Adicional</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                                <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado Civil:</label>
+                                <select name="estado" id="estado">
+                                    <option value="">Seleccione...</option>
+                                    <option value="Soltero">Soltero(a)</option>
+                                    <option value="Casado">Casado(a)</option>
+                                    <option value="Viudo">Viudo(a)</option>
+                                    <option value="Separado">Separado(a)</option>
+                                    <option value="Divorciado">Divorciado(a)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="hijos">Hijos:</label>
+                                <input type="number" id="hijos" name="hijos" min="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="grupoFamiliar">Grupo Familiar:</label>
+                                <input type="text" id="grupoFamiliar" name="grupoFamiliar">
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaBautizo">Fecha de Bautizo:</label>
+                                <input type="date" id="fechaBautizo" name="fechaBautizo">
+                            </div>
+                            <div class="form-group" id="areas-group">
+                                <label for="areas">Áreas de Servicio:</label>
+                                <select id="areas" name="areas[]" multiple>
+                                    <option value="evangelismo">Evangelismo</option>
+                                    <option value="misiones">Misiones</option>
+                                    <option value="damas">Damas</option>
+                                    <option value="jovenes">Jóvenes</option>
+                                    <option value="brigada">Brigada</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="buttons">
+                        <button type="button" onclick="document.querySelector('.formRegistrar').style.display='none'
+                        document.querySelector('.registrar').style.display=''">Ocultar Formulario</button>
+                        <button class="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Formulario de registro -->
+            <div class="formRegistrar" id="formRegistrarActividad" style="display: none;">
+                <h2>Registrar Actividad</h2>
+                <form action="#">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombreActividad">Nombre:</label>
+                            <input type="text" id="nombreActividad" name="nombreActividad">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaActividad">Fecha:</label>
+                            <input type="date" id="fechaActividad" name="fechaActividad">
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" onclick="document.querySelector('#formRegistrarActividad').style.display='none'
+                        document.querySelector('.registrarActividad').style.display=''">Ocultar Formulario</e=>
+                        <button class="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Tabla de datos -->
+            <div class="tableContainer">
+                <h3>Lista de Jóvenes</h3>
+                <div class="tableActions">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
+                    <div class="generateReportBtn">
+                        <button id="report-pdf"><i class="fa-regular fa-file-pdf"></i></button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cédula</th>
+                                <th>Edad</th>
+                                <th>Teléfono</th>
+                                <th>Grupo Familiar</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aryen Marrero</td>
+                                <td>31200220</td>
+                                <td>20 años</td>
+                                <td>0414-414-2978</td>
+                                <td>Guerreros de Adonay</td>
+                                <td>
+                                    <button>
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="tableContainer">
+                <h3>Lista de Actividades</h3>
+                <div class="tableActions">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Campaña Evangelistica</td>
+                                <td>18-02-2025</td>
+                                <td>
+                                    <button>
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/select2.min.js"></script>
     <script>
+        $(document).ready(function () {
+            $('#areas').select2();
+        });
+
         let menuToggle = document.querySelector('.menuToggle');
         let sidebar = document.querySelector('.sidebar');
+        let main = document.querySelector('.main');
+        let logo = document.querySelector('.logo');
 
-        menuToggle.onclick = function(){
+        menuToggle.onclick = function () {
             menuToggle.classList.toggle('active');
             sidebar.classList.toggle('active');
+            main.classList.toggle('active');
+            logo.classList.toggle('activo');
         }
 
         let menuList = document.querySelectorAll('.menu-list li');
-        function activeLick(){
+        function activeLick() {
             menuList.forEach((item) =>
-            item.classList.remove('active'));
+                item.classList.remove('active'));
             this.classList.add('active');
         }
-        
+
         menuList.forEach((item) =>
-        item.addEventListener('click', activeLick));
+            item.addEventListener('click', activeLick));
+
+        let menuToggle2 = document.querySelector('.menuToggle2');
+        let nav = document.querySelector('.nav');
+
+        menuToggle2.onclick = function () {
+            menuToggle2.classList.toggle('active');
+            nav.classList.toggle('active');
+        }
+
+        let menu = document.querySelectorAll('.nav li');
+        function activeLick2() {
+            menu.forEach((item) =>
+                item.classList.remove('active'));
+            this.classList.add('active');
+        }
+
+        menu.forEach((item) =>
+            item.addEventListener('click', activeLick2));
     </script>
 </body>
+
 </html>

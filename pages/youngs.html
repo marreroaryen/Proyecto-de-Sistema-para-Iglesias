@@ -103,19 +103,16 @@
             </div>
 
             <div class="botones">
-                <button class="registrar" onclick="
-                document.querySelector('.formRegistrar').style.display=''
-                document.querySelector('.registrar').style.display='none'
-                ">
-                    Registrar Joven</button>
-                <button class="registrarActividad" onclick="
-                document.querySelector('#formRegistrarActividad').style.display=''
-                document.querySelector('.registrarActividad').style.display='none'">
-                    Registrar Actividad</button>
+                <button class="registrar register">
+                    Registrar Joven
+                </button>
+                <button class="registrarActividad register">
+                    Registrar Actividad
+                </button>
             </div>
 
             <!-- Formulario de registro -->
-            <div class="formRegistrar" style="display: none;">
+            <div class="formRegistrar" id="formRegistrar" style="display: none;">
                 <h2>Registrar Joven</h2>
                 <form action="#">
                     <fieldset>
@@ -204,8 +201,7 @@
                     </fieldset>
 
                     <div class="buttons">
-                        <button type="button" onclick="document.querySelector('.formRegistrar').style.display='none'
-                        document.querySelector('.registrar').style.display=''">Ocultar Formulario</button>
+                        <button type="button" class="ocultarForm">Ocultar Formulario</e=>
                         <button class="submit">Registrar</button>
                     </div>
                 </form>
@@ -227,8 +223,7 @@
                     </div>
 
                     <div class="buttons">
-                        <button type="button" onclick="document.querySelector('#formRegistrarActividad').style.display='none'
-                        document.querySelector('.registrarActividad').style.display=''">Ocultar Formulario</e=>
+                        <button type="button" class="ocultarForm">Ocultar Formulario</e=>
                         <button class="submit">Registrar</button>
                     </div>
                 </form>
@@ -339,23 +334,37 @@
         menuList.forEach((item) =>
             item.addEventListener('click', activeLick));
 
-        let menuToggle2 = document.querySelector('.menuToggle2');
-        let nav = document.querySelector('.nav');
+        $(document).ready(function () {
+            $(document).on('click', '.ocultarForm', function(event) {
+                event.preventDefault();
+                const allForms = document.querySelectorAll('.formRegistrar');
+                allForms.forEach(form => form.style.display = 'none');
 
-        menuToggle2.onclick = function () {
-            menuToggle2.classList.toggle('active');
-            nav.classList.toggle('active');
-        }
+                const allButtons = document.querySelectorAll('.register');
+                allButtons.forEach(button => button.style.display = '');
+            })
 
-        let menu = document.querySelectorAll('.nav li');
-        function activeLick2() {
-            menu.forEach((item) =>
-                item.classList.remove('active'));
-            this.classList.add('active');
-        }
+            $(document).on('click', '.registrar', function(event){
+                event.preventDefault();
+                const form = document.getElementById('formRegistrar');
+                form.style.display = '';
+                const form2 = document.getElementById('formRegistrarActividad');
+                form2.style.display = 'none';
+                document.querySelector('.registrar').style.display = 'none';
+                document.querySelector('.registrarActividad').style.display = '';
 
-        menu.forEach((item) =>
-            item.addEventListener('click', activeLick2));
+            })
+
+            $(document).on('click', '.registrarActividad', function(event){
+                event.preventDefault();
+                const form = document.getElementById('formRegistrarActividad');
+                form.style.display = '';
+                const form2 = document.getElementById('formRegistrar');
+                form2.style.display = 'none';
+                document.querySelector('.registrarActividad').style.display = 'none';
+                document.querySelector('.registrar').style.display = '';
+            })
+        })
     </script>
 </body>
 
