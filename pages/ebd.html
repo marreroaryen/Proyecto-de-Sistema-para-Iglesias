@@ -4,25 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sociedad de Jóvenes - Alfa Y Omega</title>
+    <title>Escuela Bíblica Dominical - Alfa Y Omega</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
     <link href="../css/select2.min.css" rel="stylesheet" />
     <style>
         button.registrar, button.registrarActividad {
-            background-color: #1079cf !important;
+            background-color: #0fc70f !important;
             color: #fff !important;
         }
 
         button.registrar:hover , button.registrarActividad:hover {
-            background-color: #105b8d !important;
+            background-color: #048004 !important;
             transform: scale(1.05) !important;
         }
 
         table th {
-            background-color: #1079cf;
+            background-color: #0fc70f;
             color: white;
         }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 2px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .pagination a:hover {
+            background-color: #0056b3;
+        }
+
+        .pagination .active {
+            background-color: #0056b3;
+            cursor: not-allowed;
+        }
+
     </style>
 </head>
 
@@ -60,13 +85,13 @@
                                 <div class="text">Damas</div>
                             </a>
                         </li>
-                        <li style="--bg: #1079cf;" class="active">
+                        <li style="--bg: #1079cf;" class="">
                             <a href="#" title="JÓVENES">
                                 <div class="icon"><i class="fas fa-users"></i></div>
                                 <div class="text">Jóvenes</div>
                             </a>
                         </li>
-                        <li style="--bg: #0fc70f;" class="">
+                        <li style="--bg: #0fc70f;" class="active">
                             <a href="#" title="EBD">
                                 <div class="icon"><i class="fas fa-book"></i></div>
                                 <div class="text">EBD</div>
@@ -82,10 +107,18 @@
                 </div>
                 <div class="bottom">
                     <li style="--bg: #0D0000;">
-                        <a href="#" title="AJUSTES">
-                            <div class="icon"><i class="fas fa-user-cog"></i></div>
-                            <div class="text">Ajustes</div>
+                        <a href="#">
+                            <div class="icon">
+                                <div class="imgBx">
+                                    <img src="../images/icon/user.png" alt="">
+                                </div>
+                            </div>
+                            <div class="text">Aryen Marrero</div>
                         </a>
+                        <!-- <a href="#" title="AJUSTES">
+                            <div class="icon"><i class="fas fa-user-cog"></i></div>
+                            <div class="text">Aryen Marrero</div>
+                        </a> -->
                     </li>
                     <li style="--bg: #0D0000;">
                         <a href="#" title="CERRAR SESIÓN">
@@ -99,23 +132,20 @@
 
         <div class="main">
             <div class="header">
-                <h1>Columna Y Baluarte de la Verdad</h1>
+                <h1>Escuela Bíblica Dominical</h1>
             </div>
 
             <div class="botones">
-                <button class="registrar" onclick="
-                document.querySelector('.formRegistrar').style.display=''
-                document.querySelector('.registrar').style.display='none'
-                ">
-                    Registrar Joven</button>
-                <button class="registrarActividad" onclick="
-                document.querySelector('#formRegistrarActividad').style.display=''
-                document.querySelector('.registrarActividad').style.display='none'">
-                    Registrar Actividad</button>
+                <button class="registrar register">
+                    Registrar Joven
+                </button>
+                <button class="registrarActividad register">
+                    Registrar Actividad
+                </button>
             </div>
 
             <!-- Formulario de registro -->
-            <div class="formRegistrar" style="display: none;">
+            <div class="formRegistrar" id="formRegistrar" style="display: none;">
                 <h2>Registrar Joven</h2>
                 <form action="#">
                     <fieldset>
@@ -204,8 +234,7 @@
                     </fieldset>
 
                     <div class="buttons">
-                        <button type="button" onclick="document.querySelector('.formRegistrar').style.display='none'
-                        document.querySelector('.registrar').style.display=''">Ocultar Formulario</button>
+                        <button type="button" class="ocultarForm">Ocultar Formulario</e=>
                         <button class="submit">Registrar</button>
                     </div>
                 </form>
@@ -227,8 +256,7 @@
                     </div>
 
                     <div class="buttons">
-                        <button type="button" onclick="document.querySelector('#formRegistrarActividad').style.display='none'
-                        document.querySelector('.registrarActividad').style.display=''">Ocultar Formulario</e=>
+                        <button type="button" class="ocultarForm">Ocultar Formulario</e=>
                         <button class="submit">Registrar</button>
                     </div>
                 </form>
@@ -236,7 +264,7 @@
 
             <!-- Tabla de datos -->
             <div class="tableContainer">
-                <h3>Lista de Jóvenes</h3>
+                <h3 style="display: flex; align-items: center; width: 50%; padding: 10px;">Lista de Jóvenes</h3>
                 <div class="tableActions">
                     <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
                     <div class="generateReportBtn">
@@ -264,6 +292,9 @@
                                 <td>Guerreros de Adonay</td>
                                 <td>
                                     <button>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                    <button>
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                     <button>
@@ -273,38 +304,86 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="pagination">
+                    <a href="#" class="prev">« Anterior</a>
+                    <a href="#" class="page active" data-page="1">1</a>
+                    <a href="#" class="page" data-page="2">2</a>
+                    <a href="#" class="page" data-page="3">3</a>
+                    <a href="#" class="next">Siguiente »</a>
                 </div>
             </div>
             
             <div class="tableContainer">
-                <h3>Lista de Actividades</h3>
-                <div class="tableActions">
-                    <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
+                <div style="display: flex; justify-content: space-between;">
+                    <h3 style="display: flex; align-items: center; width: 50%; padding: 10px;">Lista de Actividades</h3>
+                    <input type="text" id="searchInputActividades" placeholder="Buscar por nombre o fecha..."/>
                 </div>
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Fecha</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Campaña Evangelistica</td>
-                                <td>18-02-2025</td>
-                                <td>
-                                    <button>
-                                        <i class="fa-regular fa-pen-to-square"></i>
-                                    </button>
-                                    <button>
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div style="display: flex; gap: 20px; padding-top: 10px;">
+                    <div class="table-responsive">
+                        <table>
+                            <h4 style="display: flex; align-items: center; justify-content: center;">Pasados</h4>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Campaña Evangelistica</td>
+                                    <td>18-01-2025</td>
+                                    <td>Realizada</td>
+                                    <td>
+                                        <button>
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination">
+                            <a href="#" class="prev">« Anterior</a>
+                            <a href="#" class="page active" data-page="1">1</a>
+                            <a href="#" class="page" data-page="2">2</a>
+                            <a href="#" class="page" data-page="3">3</a>
+                            <a href="#" class="next">Siguiente »</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <h4 style="display: flex; align-items: center; justify-content: center;">Próximas</h4>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Clamor Nacional</td>
+                                    <td>18-03-2025</td>
+                                    <td>Pendiente</td>
+                                    <td>
+                                        <button>
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination">
+                            <a href="#" class="prev">« Anterior</a>
+                            <a href="#" class="page active" data-page="1">1</a>
+                            <a href="#" class="page" data-page="2">2</a>
+                            <a href="#" class="page" data-page="3">3</a>
+                            <a href="#" class="next">Siguiente »</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -329,33 +408,47 @@
             logo.classList.toggle('activo');
         }
 
-        let menuList = document.querySelectorAll('.menu-list li');
-        function activeLick() {
-            menuList.forEach((item) =>
-                item.classList.remove('active'));
-            this.classList.add('active');
-        }
+        // let menuList = document.querySelectorAll('.menu-list li');
+        // function activeLick() {
+        //     menuList.forEach((item) =>
+        //         item.classList.remove('active'));
+        //     this.classList.add('active');
+        // }
 
-        menuList.forEach((item) =>
-            item.addEventListener('click', activeLick));
+        // menuList.forEach((item) =>
+        //     item.addEventListener('click', activeLick));
 
-        let menuToggle2 = document.querySelector('.menuToggle2');
-        let nav = document.querySelector('.nav');
+        $(document).ready(function () {
+            $(document).on('click', '.ocultarForm', function(event) {
+                event.preventDefault();
+                const allForms = document.querySelectorAll('.formRegistrar');
+                allForms.forEach(form => form.style.display = 'none');
 
-        menuToggle2.onclick = function () {
-            menuToggle2.classList.toggle('active');
-            nav.classList.toggle('active');
-        }
+                const allButtons = document.querySelectorAll('.register');
+                allButtons.forEach(button => button.style.display = '');
+            })
 
-        let menu = document.querySelectorAll('.nav li');
-        function activeLick2() {
-            menu.forEach((item) =>
-                item.classList.remove('active'));
-            this.classList.add('active');
-        }
+            $(document).on('click', '.registrar', function(event){
+                event.preventDefault();
+                const form = document.getElementById('formRegistrar');
+                form.style.display = '';
+                const form2 = document.getElementById('formRegistrarActividad');
+                form2.style.display = 'none';
+                document.querySelector('.registrar').style.display = 'none';
+                document.querySelector('.registrarActividad').style.display = '';
 
-        menu.forEach((item) =>
-            item.addEventListener('click', activeLick2));
+            })
+
+            $(document).on('click', '.registrarActividad', function(event){
+                event.preventDefault();
+                const form = document.getElementById('formRegistrarActividad');
+                form.style.display = '';
+                const form2 = document.getElementById('formRegistrar');
+                form2.style.display = 'none';
+                document.querySelector('.registrarActividad').style.display = 'none';
+                document.querySelector('.registrar').style.display = '';
+            })
+        })
     </script>
 </body>
 

@@ -23,6 +23,30 @@
             background-color: #1079cf;
             color: white;
         }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 2px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .pagination a:hover {
+            background-color: #0056b3;
+        }
+
+        .pagination .active {
+            background-color: #0056b3;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 
@@ -82,10 +106,18 @@
                 </div>
                 <div class="bottom">
                     <li style="--bg: #0D0000;">
-                        <a href="#" title="AJUSTES">
+                        <a href="#">
+                            <div class="icon">
+                                <div class="imgBx">
+                                    <img src="../images/icon/user.png" alt="">
+                                </div>
+                            </div>
+                            <div class="text">Aryen Marrero</div>
+                        </a>
+                        <!-- <a href="#" title="AJUSTES">
                             <div class="icon"><i class="fas fa-user-cog"></i></div>
                             <div class="text">Ajustes</div>
-                        </a>
+                        </a> -->
                     </li>
                     <li style="--bg: #0D0000;">
                         <a href="#" title="CERRAR SESIÓN">
@@ -99,7 +131,7 @@
 
         <div class="main">
             <div class="header">
-                <h1>Columna Y Baluarte de la Verdad</h1>
+                <h1>Sociedad de Jóvenes</h1>
             </div>
 
             <div class="botones">
@@ -231,7 +263,7 @@
 
             <!-- Tabla de datos -->
             <div class="tableContainer">
-                <h3>Lista de Jóvenes</h3>
+                <h3 style="display: flex; align-items: center; width: 50%; padding: 10px;">Lista de Jóvenes</h3>
                 <div class="tableActions">
                     <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
                     <div class="generateReportBtn">
@@ -259,6 +291,9 @@
                                 <td>Guerreros de Adonay</td>
                                 <td>
                                     <button>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                    <button>
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                     <button>
@@ -268,38 +303,86 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="pagination">
+                    <a href="#" class="prev">« Anterior</a>
+                    <a href="#" class="page active" data-page="1">1</a>
+                    <a href="#" class="page" data-page="2">2</a>
+                    <a href="#" class="page" data-page="3">3</a>
+                    <a href="#" class="next">Siguiente »</a>
                 </div>
             </div>
             
             <div class="tableContainer">
-                <h3>Lista de Actividades</h3>
-                <div class="tableActions">
-                    <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
+                <div style="display: flex; justify-content: space-between;">
+                    <h3 style="display: flex; align-items: center; width: 50%; padding: 10px;">Lista de Actividades</h3>
+                    <input type="text" id="searchInputActividades" placeholder="Buscar por nombre o fecha..."/>
                 </div>
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Fecha</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Campaña Evangelistica</td>
-                                <td>18-02-2025</td>
-                                <td>
-                                    <button>
-                                        <i class="fa-regular fa-pen-to-square"></i>
-                                    </button>
-                                    <button>
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div style="display: flex; gap: 20px; padding-top: 10px;">
+                    <div class="table-responsive">
+                        <table>
+                            <h4 style="display: flex; align-items: center; justify-content: center;">Pasados</h4>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Campaña Evangelistica</td>
+                                    <td>18-01-2025</td>
+                                    <td>Realizada</td>
+                                    <td>
+                                        <button>
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination">
+                            <a href="#" class="prev">« Anterior</a>
+                            <a href="#" class="page active" data-page="1">1</a>
+                            <a href="#" class="page" data-page="2">2</a>
+                            <a href="#" class="page" data-page="3">3</a>
+                            <a href="#" class="next">Siguiente »</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <h4 style="display: flex; align-items: center; justify-content: center;">Próximas</h4>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Clamor Nacional</td>
+                                    <td>18-03-2025</td>
+                                    <td>Pendiente</td>
+                                    <td>
+                                        <button>
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination">
+                            <a href="#" class="prev">« Anterior</a>
+                            <a href="#" class="page active" data-page="1">1</a>
+                            <a href="#" class="page" data-page="2">2</a>
+                            <a href="#" class="page" data-page="3">3</a>
+                            <a href="#" class="next">Siguiente »</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,15 +407,15 @@
             logo.classList.toggle('activo');
         }
 
-        let menuList = document.querySelectorAll('.menu-list li');
-        function activeLick() {
-            menuList.forEach((item) =>
-                item.classList.remove('active'));
-            this.classList.add('active');
-        }
+        // let menuList = document.querySelectorAll('.menu-list li');
+        // function activeLick() {
+        //     menuList.forEach((item) =>
+        //         item.classList.remove('active'));
+        //     this.classList.add('active');
+        // }
 
-        menuList.forEach((item) =>
-            item.addEventListener('click', activeLick));
+        // menuList.forEach((item) =>
+        //     item.addEventListener('click', activeLick));
 
         $(document).ready(function () {
             $(document).on('click', '.ocultarForm', function(event) {

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela Bíblica Dominical - Alfa Y Omega</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link href="../css/select2.min.css" rel="stylesheet" />
+    <style>
+        button.registrar, button.registrarActividad {
+            background-color: #ffc107 !important;
+            color: #fff !important;
+        }
+
+        button.registrar:hover , button.registrarActividad:hover {
+            background-color: #b98b00 !important;
+            transform: scale(1.05) !important;
+        }
+
+        table th {
+            background-color: #ffc107;
+            color: white;
+        }
+
+
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 2px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .pagination a:hover {
+            background-color: #0056b3;
+        }
+
+        .pagination .active {
+            background-color: #0056b3;
+            cursor: not-allowed;
+        }
+
+        /* .pagination a {
+            margin: 0 2px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .pagination a:hover {
+            background-color: #0056b3;
+        }
+
+        .pagination .active {
+            background-color: #0056b3;
+            cursor: not-allowed;
+        } */
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #f2f2f2;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Menu Lateral -->
+        <div class="sidebar" style="display: nonem;">
+            <ul>
+                <div class="menu">
+                    <li class="logo" style="--bg: #0D0000;">
+                        <a href="#">
+                            <div class="icon"><img src="../images/icon/biblia1.png" alt=""></div>
+                            <div class="text">ALFA Y OMEGA</div>
+                        </a>
+                    </li>
+                    <div class="menuToggle"></div>
+                </div>
+                <div class="menu-list">
+                    <ul>
+                        <li style="--bg: #f44336;" class="">
+                            <a href="#" title="INICIO">
+                                <div class="icon"><i class="fa-regular fa-house"></i></div>
+                                <div class="text">Inicio</div>
+                            </a>
+                        </li>
+                        <li style="--bg: #ffa117;" class="">
+                            <a href="#" title="BRIGADA">
+                                <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                                <div class="text">Brigada</div>
+                            </a>
+                        </li>
+                        <li style="--bg: #b145e9;" class="">
+                            <a href="#" title="DAMAS">
+                                <div class="icon"><i class="fas fa-female"></i></div>
+                                <div class="text">Damas</div>
+                            </a>
+                        </li>
+                        <li style="--bg: #1079cf;" class="">
+                            <a href="#" title="JÓVENES">
+                                <div class="icon"><i class="fas fa-users"></i></div>
+                                <div class="text">Jóvenes</div>
+                            </a>
+                        </li>
+                        <li style="--bg: #0fc70f;" class="">
+                            <a href="#" title="EBD">
+                                <div class="icon"><i class="fas fa-book"></i></div>
+                                <div class="text">EBD</div>
+                            </a>
+                        </li>
+                        <li style="--bg: #ffc107;" class="active">
+                            <a href="#" title="USUARIOS">
+                                <div class="icon"><i class="fas fa-user"></i></div>
+                                <div class="text">USUARIOS</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <li style="--bg: #0D0000;">
+                        <a href="#">
+                            <div class="icon">
+                                <div class="imgBx">
+                                    <img src="../images/icon/user.png" alt="">
+                                </div>
+                            </div>
+                            <div class="text">Aryen Marrero</div>
+                        </a>
+                        <!-- <a href="#" title="AJUSTES">
+                            <div class="icon"><i class="fas fa-user-cog"></i></div>
+                            <div class="text">Ajustes</div>
+                        </a> -->
+                    </li>
+                    <li style="--bg: #0D0000;">
+                        <a href="#" title="CERRAR SESIÓN">
+                            <div class="icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                            <div class="text">Cerrar Sesión</div>
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+
+        <div class="main">
+            <div class="header">
+                <h1>Usuarios Registrados</h1>
+            </div>
+
+            <div class="botones">
+                <button class="registrar register">
+                    Registrar Usuario
+                </button>
+            </div>
+
+            <!-- Formulario de registro -->
+            <div class="formRegistrar" id="formRegistrar" style="display: none;">
+                <h2>Registrar Usuario</h2>
+                <form action="#">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cedula">Cédula:</label>
+                            <input type="text" id="cedula" name="cedula">
+                        </div>
+                        <div class="form-group" id="correo-group">
+                            <label for="correo">Correo:</label>
+                            <input type="email" id="correo" name="correo">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordConfirmated">Confirmar Contraseña:</label>
+                            <input type="password" id="passwordConfirmated" name="passwordConfirmated">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaNacimiento">Rol:</label>
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="ocultarForm">Ocultar Formulario</e=>
+                        <button class="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Tabla de datos -->
+            <div class="tableContainer">
+                <h3 style="display: flex; align-items: center; width: 50%; padding: 10px;">Lista de Usuarios</h3>
+                <div class="tableActions">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre o cédula..." />
+                    <div class="generateReportBtn">
+                        <button id="report-pdf"><i class="fa-regular fa-file-pdf"></i></button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Dependencia</th>
+                                <th>Cargo</th>
+                                <th>Fecha de Creación</th>
+                                <th>Fecha de Actualización</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aryen Marrero</td>
+                                <td>marreroaryen@gmail.com</td>
+                                <td>Brigada</td>
+                                <td>Segundo Comandante</td>
+                                <td>20-10-2021</td>
+                                <td width="20px">20-10-2021</td>
+                                <td>
+                                    <button>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                    <button>
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>      
+                </div>
+                <div class="pagination">
+                    <a href="#" class="prev">« Anterior</a>
+                    <a href="#" class="page active" data-page="1">1</a>
+                    <a href="#" class="page" data-page="2">2</a>
+                    <a href="#" class="page" data-page="3">3</a>
+                    <a href="#" class="next">Siguiente »</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#areas').select2();
+        });
+
+        let menuToggle = document.querySelector('.menuToggle');
+        let sidebar = document.querySelector('.sidebar');
+        let main = document.querySelector('.main');
+        let logo = document.querySelector('.logo');
+
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            main.classList.toggle('active');
+            logo.classList.toggle('activo');
+        }
+
+        // let menuList = document.querySelectorAll('.menu-list li');
+        // function activeLick() {
+        //     menuList.forEach((item) =>
+        //         item.classList.remove('active'));
+        //     this.classList.add('active');
+        // }
+
+        // menuList.forEach((item) =>
+        //     item.addEventListener('click', activeLick));
+
+        $(document).ready(function () {
+            $(document).on('click', '.ocultarForm', function(event) {
+                event.preventDefault();
+                const allForms = document.querySelectorAll('.formRegistrar');
+                allForms.forEach(form => form.style.display = 'none');
+
+                const allButtons = document.querySelectorAll('.register');
+                allButtons.forEach(button => button.style.display = '');
+            })
+
+            $(document).on('click', '.registrar', function(event){
+                event.preventDefault();
+                const form = document.getElementById('formRegistrar');
+                form.style.display = '';
+                document.querySelector('.registrar').style.display = 'none';
+
+            })
+        })
+    </script>
+</body>
+
+</html>

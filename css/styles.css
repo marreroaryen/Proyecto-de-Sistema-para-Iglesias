@@ -461,7 +461,13 @@ button[type="button"]:hover {
 }
 
 .tableContainer h3 {
-    font-size: 1.5em;
+    font-size: 1.7em;
+    align-items: center;
+}
+
+.tableContainer h4 {
+    font-size: 1.2em;
+    align-items: center;
 }
 
 /* Estilo de la barra de búsqueda y botón de reporte */
@@ -481,6 +487,23 @@ button[type="button"]:hover {
 }
 
 #searchInput:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+#searchInputActividades {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+#searchInputActividades:focus {
     outline: none;
     border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
@@ -648,7 +671,8 @@ table {
 table th, table td {
     border: 1px solid #ddd;
     padding: 10px;
-    text-align: left;
+    text-align: center;
+    font-size: 16px;
 }
 
 table th {
@@ -670,6 +694,12 @@ table th {
 
 .d-none {
     display: none;
+}
+
+.tablaActividades{
+    display: flex; 
+    gap: 20px; 
+    padding-top: 10px;
 }
 
 @media (max-width: 830px) {
@@ -986,7 +1016,7 @@ table th {
     }
 
     thead th, tbody td {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 
     button {
@@ -1039,6 +1069,22 @@ table th {
 
     .tableContainer {
         width: 90%;
+    }
+
+    .tablaActividades {
+        flex-direction: column;
+    }
+
+    h3 {
+        font-size: 25px !important;
+    }
+
+    h4 {
+        font-size: 20px !important;
+    }
+
+    #searchInputActividades {
+        width: 100% !important;
     }
 }
 
