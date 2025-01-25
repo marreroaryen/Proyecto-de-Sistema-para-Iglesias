@@ -146,8 +146,8 @@
                 </nav>
             </div>
 
-            <div class="titulo">
-                <h1>Columna Y Baluarte <br class="br" style="display: none;"> De La Verdad</h1>
+            <div class="header">
+                <h1>Columna Y Baluarte de la Verdad</h1>
             </div>
 
             <div class="botones">
@@ -155,6 +155,10 @@
                 document.querySelector('.formRegistrar').style.display=''
                 document.querySelector('.registrar').style.display='none'">
                     Registrar Joven</button>
+                <button class="registrar" onclick="
+                document.querySelector('.formRegistrarActividad').style.display=''
+                document.querySelector('.registrarActividad').style.display='none'">
+                    Registrar Actividad</button>
             </div>
 
             <!-- Formulario de registro -->
@@ -254,6 +258,29 @@
                 </form>
             </div>
 
+            <!-- Formulario de registro -->
+            <div class="formRegistrarActividad" style="display: none;">
+                <h2>Registrar Actividad</h2>
+                <form action="#">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombreActividad">Nombre:</label>
+                            <input type="text" id="nombreActividad" name="nombreActividad">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaActividad">Fecha:</label>
+                            <input type="date" id="fechaActividad" name="fechaActividad">
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" onclick="document.querySelector('.formRegistrarActividad').style.display='none'
+                        document.querySelector('.registrarActividad').style.display=''">Ocultar Formulario</button>
+                        <button class="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+
             <!-- Tabla de datos -->
             <div class="tableContainer">
                 <div class="tableActions">
@@ -347,18 +374,18 @@
         function pantalla() {
             const anchoPantalla = window.innerWidth;
             if (anchoPantalla < 525) {
-                document.querySelector('.br').style.display = '';
+                // document.querySelector('.br').style.display = '';
                 document.querySelector('.fondo-menu-2').style.display = '';
                 document.querySelector('.fondo-menu').style.display = 'none';
                 document.querySelector('.sidebar').style.display = 'none';
             } else if (anchoPantalla <= 768) {
-                document.querySelector('.br').style.display = 'none';
+                // document.querySelector('.br').style.display = 'none';
                 document.querySelector('.fondo-menu-2').style.display = '';
                 document.querySelector('.fondo-menu').style.display = 'none';
                 document.querySelector('.sidebar').style.display = 'none';
             }
             else {
-                document.querySelector('.br').style.display = 'none';
+                // document.querySelector('.br').style.display = 'none';
                 document.querySelector('.fondo-menu-2').style.display = 'none';
                 document.querySelector('.fondo-menu').style.display = '';
                 document.querySelector('.sidebar').style.display = '';
